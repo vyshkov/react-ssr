@@ -25,14 +25,16 @@ app.get('*', (req, res) => {
     );
 
     const helmet = Helmet.renderStatic();
+
+    console.info('Rendered content', content);
     
     res.send(`
         <html>
-            <header>
+            <head>
                 ${helmet.title.toString()}
                 ${helmet.meta.toString()}
                 ${sheet.getStyleTags()}
-            </header>
+            </head>
             <body>
                 <div id="root">
                     ${content}
